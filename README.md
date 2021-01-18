@@ -21,25 +21,32 @@ Based on the employee database analysis, we have identified
 ## Summary
 Pewlett-Hackard can expect to lose approximately 90k employees in the next few years as its aging workforce opts for retirement. The company has a very small pipeline young talent: approximately 1.4k current employees were born in 1965. Thus, the company will need to hire approximately 89k employees in the coming years. There is a plethora of qualified, retirement-ready employees who can mentor the next generation of Pewlett Hackard employees. In fact, the company would do well to hire more young employees who would benefit from the mentorship of the retirement-ready employees.
 
-In looking for employees born before 1965, we only
--- Look for even younger employees born on or before 1965
-SELECT DISTINCT ON (emp_no) e.emp_no,
-    e.first_name,
-    e.last_name,
-    e.birth_date,
-    de.from_date,
-    de.to_date,
-    t.title
--- INTO mentorship_eligibility
-FROM employees AS e
-    INNER JOIN dept_employees AS de
-        ON (e.emp_no = de.emp_no)
-    INNER JOIN titles AS t
-        ON (e.emp_no = t.emp_no)
-WHERE (birth_date BETWEEN '1965-01-01' AND '1988-12-31')
-AND (de.to_date = '9999-01-01')
-ORDER BY emp_no ASC;
+In addition to the primary deliverables, we have completed additional analysis on the upcoming retirees and their total salary as well as their department. Please refer to the code below.
+The total salaries among the 90k employees ready for retirement at over $4.7 bln, which means Pewlett-Hackard should expect substantial labor savings in the coming years.
 
-rovide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
-How many roles will need to be filled as the "silver tsunami" begins to make an impact?
-Are there enough qualified, retirement-ready employees in the departments to mentor the next generation of Pewlett Hackard employees?
+```
+-- Sum of salary among retirement list
+SELECT ut.emp_no,
+	ut.first_name,
+	s.salary
+INTO ut_salary
+FROM unique_titles AS ut
+	 LEFT JOIN salaries AS s
+	 	ON (ut.emp_no = s.emp_no);
+		
+SELECT SUM (salary)
+FROM ut_salary
+```
+
+The development department (25.6k), production department (22.2k), and sales department (15.7k) will have the largest number of retirements.
+```
+-- Employees up for retirement by department number
+SELECT COUNT(ut.emp_no), d.dept_name
+FROM unique_titles AS ut
+LEFT JOIN dept_employees AS de
+ON ut.emp_no = de.emp_no
+INNER JOIN departments AS d
+ON de.dept_no = d.dept_no 
+GROUP BY d.dept_name
+ORDER BY d.dept_name;
+```
