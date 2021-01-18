@@ -9,7 +9,7 @@ For this assignment, we produced five outputs.
 2. Unique_titles.csv file (in data folder), which removes duplicates contained in the retirement_titles.csv file
 3. Retiring_titles.csv file (in data folder), which takes the unique employees up for retirement and provides the total number grouped by title
 4. mentorship_eligibility.csv file (in data folder), which takes the unique employees born in 1965 who are eligible for the mentorship program
-5. Employee_Database_Challenge.sql, which contains the SQL code used to build the relational databases and csv file outputs.
+5. Employee_Database_Challenge.sql (in queries folder), which contains the SQL code used to build the relational databases and csv file outputs.
 
 ## Results
 Based on the employee database analysis, we have identified
