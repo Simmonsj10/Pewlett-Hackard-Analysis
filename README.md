@@ -5,10 +5,10 @@ Author: Jerome Simmons
 Pewlett-Hackard has an aging workforce and expects many of its members to retire in the near future. The company has asked us to provide a count of the number of employees up for retirement by title. In order to prepare for the upcoming rise in retirements, Pewlett-Hackard wants to develop a Mentorship Program so employees born in 1965 can learn and benefit from those with more work experience (born between 1952 & 1955).
 
 For this assignment, we produced five outputs.
-1. Retirement_titles.csv file, which shows the count of upcoming retirees by title (contains duplicates)
-2. Unique_titles.csv file, which removes duplicates contained in the retirement_titles.csv file
-3. Retiring_titles.csv file, which takes the unique employees up for retirement and provides the total number grouped by title
-4. mentorship_eligibility.csv file, which takes the unique employees born in 1965 who are eligible for the mentorship program
+1. Retirement_titles.csv file (in data folder), which shows the count of upcoming retirees by title (contains duplicates)
+2. Unique_titles.csv file (in data folder), which removes duplicates contained in the retirement_titles.csv file
+3. Retiring_titles.csv file (in data folder), which takes the unique employees up for retirement and provides the total number grouped by title
+4. mentorship_eligibility.csv file (in data folder), which takes the unique employees born in 1965 who are eligible for the mentorship program
 5. Employee_Database_Challenge.sql, which contains the SQL code used to build the relational databases and csv file outputs.
 
 ## Results
